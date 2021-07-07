@@ -9,7 +9,9 @@ table {
   border: 1px solid rgba(0, 0, 0, .2);
 
 }
-
+i{
+  cursor: pointer;
+}
 table button {
   background: transparent;
   color: #33C3A2;

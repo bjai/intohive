@@ -6,7 +6,17 @@
                 <thead>
                     <tr class="header-table">
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">
+                            Name
+                            <span (click)="sort(sorttext)">
+                                <i
+                                    *ngIf="sorttext === 'desc'"
+                                    class="fas fa-arrow-up"></i>
+                                <i
+                                    *ngIf="sorttext === 'asc'"
+                                    class="fas fa-arrow-down"></i>
+                            </span>
+                        </th>
                         <th scope="col">Email</th>
                         <th scope="col">Mobile Number</th>
                         <th scope="col">Address</th>
@@ -121,6 +131,16 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
+
+
+
+
 
 
 

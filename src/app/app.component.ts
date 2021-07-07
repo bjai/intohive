@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from 'src/user.model';
-import { updateUser } from './store/actions/counter';
+import { asscendingData, desscendingData, updateUser } from './store/actions/counter';
 
 @Component({
   selector: 'my-app',
@@ -14,7 +14,8 @@ export class AppComponent {
 
   count$: Observable<number>;
   user$: Observable<any>;
-  showModal = false
+  showModal = false;
+  sorttext = "asc"
   name = "";
   email = "";
   form: FormGroup = new FormGroup({
@@ -23,7 +24,7 @@ export class AppComponent {
     email: new FormControl('', Validators.required),
     isactive: new FormControl(false),
   });
-  constructor(private store: Store<{ count: number }>) {
+  constructor(private store: Store<{ user: User }>) {
     this.user$ = this.store.pipe(select('user'));
   }
 
@@ -43,5 +44,14 @@ export class AppComponent {
   cancel() {
     this.showModal = false
   }
+  sort(value: string) {
+    if (value === "asc") {
+      this.store.dispatch(desscendingData());
+      this.sorttext = "desc"
+    } else {
+      this.store.dispatch(asscendingData());
+      this.sorttext = "asc"
+    }
 
+  }
 }

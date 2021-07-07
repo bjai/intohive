@@ -9,6 +9,21 @@ export interface UpdateUserAction {
 export type updateUser = (payload: User) => UpdateUserAction;
 export const updateUser: updateUser = (payload) => ({ type: UPATE_USER, payload });
 
+export const ASSCENDING_DATA = "asscending data";
+export interface asscendingDataAction {
+  type: typeof ASSCENDING_DATA;
+}
+
+export type asscendingData = () => asscendingDataAction;
+export const asscendingData: asscendingData = () => ({ type: ASSCENDING_DATA });
+
+export const DESSCENDING_DATA = "desscending data";
+export interface desscendingDataAction {
+  type: typeof DESSCENDING_DATA;
+}
+
+export type desscendingData = () => desscendingDataAction;
+export const desscendingData: desscendingData = () => ({ type: DESSCENDING_DATA });
 // export enum ActionTypes {
 //   Increment = '[Counter Component] Increment',
 //   Decrement = '[Counter Component] Decrement',
