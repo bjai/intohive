@@ -2,6 +2,40 @@ p {
   font-family: Lato;
 }
 
+table {
+  width: 85%;
+  margin: auto;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .2);
+
+}
+
+table button {
+  background: transparent;
+  color: #33C3A2;
+  font-weight: 600;
+  border: none;
+}
+
+h3 {
+  width: 85%;
+  margin: 0 auto;
+  padding: 18px 0;
+  font-size: 1.5rem;
+}
+
+tr,
+tr td {
+  border: 0;
+  background: #fff;
+}
+
+.header-table {
+  background: #F2F2F2;
+  color: #747474;
+  height: 45px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
