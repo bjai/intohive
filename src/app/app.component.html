@@ -1,0 +1,122 @@
+<div *ngIf="user$ | async as userstate">
+    test
+    <span *ngFor="let user of userstate.user">{{user.name}}</span>
+    <h2>Active users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let user of userstate.user">
+                <tr *ngIf="user.isactive">
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.address}}</td>
+                    <td>
+                        <button
+                            class="btn btn-primary"
+                            (click)="editUSer(user)">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+    <h2>InActive users</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let user of userstate.user">
+                <tr *ngIf="!user.isactive">
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.address}}</td>
+                    <td>
+                        <button
+                            class="btn btn-primary"
+                            (click)="editUSer(user)">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
+<div
+    *ngIf="showModal"
+    class="modal d-block"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content p-4">
+            <form
+                [formGroup]="form"
+                (submit)="updateUser()">
+                <input
+                    type="text"
+                    class="form-control d-none"
+                    formControlName="id">
+                <div class="mb-3">
+                    <label
+                        for="exampleInputEmail1"
+                        class="form-label">
+                        user name
+                    </label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label
+                        for="exampleInputEmail1"
+                        class="form-label">
+                        Email address
+                    </label>
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        formControlName="email">
+                </div>
+                <div class="mb-3 form-check">
+                    <label class="switch">
+                        <input
+                            type="checkbox"
+                            id="exampleCheck1"
+                            formControlName="isactive">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <button
+                    type="submit"
+                    class="btn btn-primary mr-2">
+                    Submit
+                </button>
+                <button
+                    (click)="cancel()"
+                    class="btn btn-primary m-2">
+                    cancel
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
