@@ -25,12 +25,10 @@ export class AppComponent {
   });
   constructor(private store: Store<{ count: number }>) {
     this.user$ = this.store.pipe(select('user'));
-    this.user$.subscribe(data => console.log('data', data));
   }
 
   editUSer(user: User) {
     this.showModal = true;
-    console.log(user);
     this.form.patchValue(user)
   }
 
@@ -38,12 +36,8 @@ export class AppComponent {
     this.showModal = false;
     this.store.dispatch(updateUser(this.form.value));
     setTimeout(() => {
-      this.user$ = this.store.pipe(select('user'));                        //<<<---using ()=> syntax
-      this.user$.subscribe(data => console.log('tieou', data));
+      this.user$ = this.store.pipe(select('user'));
     }, 3000);
-
-    console.log(this.form.value);
-
 
   }
   cancel() {

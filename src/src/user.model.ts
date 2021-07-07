@@ -9,5 +9,5 @@ export interface User {
     email?: string;
     mobile?: string;
     address?: string;
-    active?: boolean;
+    isactive?: boolean;
 }

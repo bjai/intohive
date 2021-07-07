@@ -39,14 +39,20 @@ tr td {
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 50px;
+  height: 25px;
 }
 
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  padding: 0;
 }
 
 .slider {
@@ -64,9 +70,9 @@ tr td {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
+  height: 20px;
+  width: 20px;
+  left: 1x;
   bottom: 4px;
   background-color: white;
   -webkit-transition: .4s;
@@ -74,11 +80,11 @@ tr td {
 }
 
 input:checked+.slider {
-  background-color: #2196F3;
+  background-color: #33C3A2;
 }
 
 input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #33C3A2;
 }
 
 input:checked+.slider:before {
@@ -94,4 +100,14 @@ input:checked+.slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+button {
+  background-color: #33C3A2;
+  border-color: #33C3A2;
+}
+
+button:hover {
+  background-color: #33C3A2;
+  border-color: #33C3A2;
 }

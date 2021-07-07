@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div *ngIf="user$ | async as userstate">
+        <div>
             <h3>Active users</h3>
             <table class="table">
                 <thead>
@@ -13,7 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let user of userstate.user">
+                    <ng-container *ngFor="let user of (user$ | async)?.user">
                         <tr *ngIf="user.isactive">
                             <td scope="row">{{user.id}}</td>
                             <td>{{user.name}}</td>
@@ -42,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let user of userstate.user">
+                    <ng-container *ngFor="let user of (user$ | async)?.user">
                         <tr *ngIf="!user.isactive">
                             <td scope="row">{{user.id}}</td>
                             <td>{{user.name}}</td>
@@ -105,7 +105,7 @@
                                     formControlName="isactive">
                                 <span class="slider round"></span>
                             </label>
-                            Active
+                            <span class="m-2">Active</span>
                         </div>
                         <button
                             type="submit"
@@ -121,6 +121,12 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
+
 
 
 
